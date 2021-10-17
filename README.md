@@ -21,3 +21,18 @@ roll : accepts a number and returns an array with random rolls.
 containsDuplicates : that accepts an array and check if there any rerpated elements.
 calculatingAverages : return an array avearge.
 calculatingAveragesOfMultipleArrays : return a multipe arrays avgs and identfy the lowest one.
+
+lab03:
+Lab 03 : estimated time 3 hours // actual time spent 1.5 hours
+
+-----------
+
+week 2:
+
+lab06 :estimated time 3 hours // actual time spent 1.5 hours . 
+Inhirtance directory contains 2 classes:
+Reasturant class contains 3 methods :
+To string:to print reasurant details and reviwer details.
+AddReview:Add review details fromm review class.
+contain constructor.
+To string .
