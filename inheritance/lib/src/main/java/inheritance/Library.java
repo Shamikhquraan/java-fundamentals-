@@ -3,16 +3,47 @@
  */
 package inheritance;
 
+import java.util.ArrayList;
+
 public class Library {
-    public static void main(String[] args) {
-        Restaurant shamResturant = new Restaurant("shamResturant",5,"middle");
-        Review note = new Review("shamResturant","cool and delicious",5);
+    public static void main(String[] args) throws IllegalAccessException {
+        Restaurant shamResturant = new Restaurant("shamResturant",5,90);
+        Review note = new Review("shamResturant","good enough",5);
+        Review note1 = new Review("foodRes","good enough",3);
         System.out.println(note.toString());
+        System.out.println(note1.toString());
+
+
+        Shop shop = new Shop("shamShop","low price",50);
+        Shop shop1 = new Shop("MK Shop","good products",50);
+        Review noteS = new Review("shamShop","low price",4);
+        Review noteS1 = new Review("MK Shop","good products",5);
+        System.out.println(noteS.toString());
+        System.out.println(noteS1.toString());
+
+        Theater theater = new Theater("Shamikh Theater",new ArrayList<>(),new ArrayList<>());
+        theater.addMovie("The Godfather");
+        theater.addMovie("12 Angry Men");
+        theater.addMovie("Inception");
+        System.out.println( "Is Harry potter inside the list ? "+theater.getMovies().contains("Harry potter"));
+        System.out.println( "Is Inception inside the list ? "+theater.getMovies().contains("Inception"));
+        theater.removeMovie("Inception");
+        System.out.println( " after Remove Function on Inception , Is Inception inside the list ? "+ theater.getMovies().contains("Inception"));
+
+        shamResturant.addReview(note);
+        shamResturant.addReview(note1);
+
+        shamResturant.addReview(noteS);
+        shamResturant.addReview(noteS1);
 
 
         System.out.println(shamResturant.toString());
-        shamResturant.addReview("good service","COOL AND delicious",2);
-        System.out.println(shamResturant.toString());
+
+
+
+        System.out.println(shop.toString());
+        System.out.println(shop1.toString());
+
         System.out.println();
 
     }

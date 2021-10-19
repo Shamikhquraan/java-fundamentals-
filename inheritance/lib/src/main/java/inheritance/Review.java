@@ -1,15 +1,15 @@
 package inheritance;
 
 public class Review {
-    String body;
-    String author;
-    int numOfStars;
+    private   String body;
+    private  String author;
+    public int Stars;
     private Restaurant restaurant;
 
-    public Review(String body, String author, int numOfStars) {
+    public Review(String body, String author, int Stars) {
         this.body = body;
         this.author = author;
-        this.numOfStars = numOfStars;
+        this.Stars = Stars;
     }
     public Review() {
 
@@ -23,15 +23,16 @@ public class Review {
         this.body = body;
     }
 
-    public void setStars(int stars) {
+    public int setStars(int stars) {
 
         if(stars <= 5 && stars >= 0){
-            this.numOfStars = stars;
-
+            this.Stars = stars;
+return stars;
         }else{
             System.out.println("The stars should be between 0 - 5");
         }
 
+        return -1;
     }
 
     public String getAuthor() {
@@ -43,14 +44,18 @@ public class Review {
     }
 
     public int getStars() {
-        return numOfStars;
+        return Stars;
     }
 
     public String toString(){
         String result;
-        result= "the Restaurant "+this.body+" "+this.author + "voted " +this.numOfStars +" stars." ;
-        return  result;
-
+        int sStar = setStars(this.Stars);
+        if(sStar == -1){
+            return "The stars should be between 0 - 5" ;
+        }
+            result = this.body + " " + this.author + " voted " + this.Stars + " stars.";
+            return result;
     }
+
 
 }
