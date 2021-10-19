@@ -4,49 +4,98 @@
 package inheritance;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
-
+// Lab 06 Tests :
 class LibraryTest {
-    @Test void testResToString() {
-        Restaurant r1 = new Restaurant("shamikh",5,"low");
-        System.out.println(r1.toString());
-        String note = r1.toString();
-        assertEquals("Restaurant: shamikh \n" +
-                " rating : 5.0 \n" +
-                " price category: low$",note);
-    }
-
-
-    @Test void testReviewToString() {
-        Review r1 = new Review("shamikh","RES",2);
-        System.out.println(r1.toString());
-        String note = r1.toString();
-        assertEquals("the Restaurant "+"shamikh"+" "+"RES" + "voted " +"2" +" stars." ,note);
-
+    @Test void someLibraryMethodReturnsTrue() {
+        Library classUnderTest = new Library();
 
     }
 
-    @Test void testAssociated() {
-        Restaurant r1 = new Restaurant("bad", 5, "high");
-        r1.addReview("good","mazen",5);
-        r1.addReview("bad","majed",1);
-        r1.reviewList.toString();
+
+
+    @Test public void RestaurantConstTest() {
+        Restaurant restaurant = new Restaurant("ShamikhRes", 5 ,90);
+
+        assertEquals("ShamikhRes", restaurant.getName());
+        assertEquals(5, restaurant.getStars());
+        assertEquals(90, restaurant.getPriceCategory());
+    }
+
+    @Test public void toStringTest() {
+        Restaurant restaurant = new Restaurant("ShamikhRes", 5 ,90);
+
+        assertEquals("the Restaurant ShamikhReshas 5 AS RATE 90$", restaurant.toString());
+    }
+
+    @Test public void ReviewConstructorTest(){
+        Review review= new Review("ShamikhRes","is good" ,4);
+        assertEquals("is good",review.getAuthor());
+        assertEquals("ShamikhRes",review.getBody());
+        assertEquals(4,review.getStars());
+    }
+
+    @Test public void ReviewToStringTest() {
+        Review review = new Review("ShamikhRes", "is good", 4);
+        assertEquals("ShamikhRes is good voted 4 stars.", review.toString());
     }
 
 
-    @Test void testAddReview(){
-        Restaurant r1 = new Restaurant("mac",0,"low");
-        Review r2 = new Review("good","abd",4);
+    @Test
+    public  void addReviewTest(){
+        Restaurant restaurant = new Restaurant();
+        Review review = new Review("ShamikhRes", "is good", 4);
+        Review review1 = new Review("ShamikhRes", "is good", 3);
+        Review review2 = new Review("ShamikhRes", "is good", 5);
+        restaurant.addReview(review);
+        restaurant.addReview(review1);
+        restaurant.addReview(review2);
+        assertEquals(4,restaurant.getStars());
+    }
 
-        r1.addReview("good","abd",4);
-        String note =r1.toString();
-        System.out.println(note);
+    // Lab 07 Tests :
+    @Test
+    public void shopClassTest (){
+        Shop shop = new Shop("ShamikhShop","hi",2);
+        assertEquals("ShamikhShop",shop.getName());
+        assertEquals("hi",shop.getDescription());
+        assertEquals(2,shop.getDollarSigns());
+    }
+    @Test
+    public void testAddReview() {
+        Shop shop = new Shop("Roosevelt Field","Mall in Garden City",4);
+        Review review = new Review("ShamikhShop", "is good", 4);
+        Review review1 = new Review("ShamikhShop", "is good", 3);
+        Review review2 = new Review("ShamikhShop", "is good", 5);
+        shop.addReview(review);
+        shop.addReview(review1);
+        shop.addReview(review2);
+        assertEquals(4,shop.getStars());
+    }
 
-        assertEquals("Restaurant: mac \n" +
-                " rating : 2.0 \n" +
-                " price category: low$",note);
+    @Test
+    public void testTheaterAddMovies(){
+        Theater theater = new Theater("Shamikh Pike",new ArrayList<>(),new ArrayList<>());
+        theater.addMovie("Harry potter");
+        theater.addMovie("Bad Moms");
+        theater.addMovie("Aladdin");
+        assertTrue(theater.getMovies().contains("Harry potter"));
 
     }
 
+    @Test
+    public void testTheaterRemoveMovies() throws IllegalAccessException {
+        Theater theater = new Theater("Shamikh Pike",new ArrayList<>(),new ArrayList<>());
+        theater.addMovie("Harry potter");
+        theater.addMovie("Bad Moms");
+        theater.addMovie("Aladdin");
+
+        theater.removeMovie("Harry potter");
+        assertFalse(theater.getMovies().contains("Harry potter"));
+
+    }
 
 }
