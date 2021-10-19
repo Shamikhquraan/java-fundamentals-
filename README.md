@@ -36,3 +36,10 @@ To string:to print reasurant details and reviwer details.
 AddReview:Add review details fromm review class.
 contain constructor.
 To string .
+
+lab07 :estimated time 4 hours // actual time spent 3 hours . 
+Inhirtance directory 1 interface and contains 4 classes:
+each class contains at leasr 3 , 4 methods :
+To string:to print resturant or theater or shop details and reviwer details.
+AddReview:Add review details fromm review class.
+contain constructor.
