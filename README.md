@@ -25,7 +25,7 @@ calculatingAveragesOfMultipleArrays : return a multipe arrays avgs and identfy t
 lab03:
 Lab 03 : estimated time 3 hours // actual time spent 1.5 hours
 
------------
+--------------
 
 week 2:
 
